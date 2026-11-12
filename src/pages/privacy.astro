@@ -1,0 +1,10 @@
+---
+import Base from "../layouts/Base.astro";
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
+const html = readFileSync(join(process.cwd(), "src/fragments/privacy.html"), "utf8");
+---
+
+<Base title="Privacy policy · House of Artist" description="How House of Artist handles personal information.">
+	<Fragment set:html={html} />
+</Base>

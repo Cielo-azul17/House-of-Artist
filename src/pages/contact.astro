@@ -1,0 +1,10 @@
+---
+import Base from "../layouts/Base.astro";
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
+const html = readFileSync(join(process.cwd(), "src/fragments/contact.html"), "utf8");
+---
+
+<Base title="Contact us · House of Artist" description="Talk to House of Artist about performing, organising or partnering on an event.">
+	<Fragment set:html={html} />
+</Base>

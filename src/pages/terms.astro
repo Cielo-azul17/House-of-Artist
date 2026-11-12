@@ -1,0 +1,10 @@
+---
+import Base from "../layouts/Base.astro";
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
+const html = readFileSync(join(process.cwd(), "src/fragments/terms.html"), "utf8");
+---
+
+<Base title="Terms and conditions · House of Artist" description="Terms that apply to using the House of Artist website and services.">
+	<Fragment set:html={html} />
+</Base>

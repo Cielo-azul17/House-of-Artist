@@ -1,28 +1,10 @@
 ---
-import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
-
-// Body fragments exported from the design (see handoff/BRIEF.md).
-const loader = readFileSync(join(process.cwd(), 'src/fragments/loader.html'), 'utf8');
-const home = readFileSync(join(process.cwd(), 'src/fragments/home.html'), 'utf8');
+import Base from "../layouts/Base.astro";
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
+const html = readFileSync(join(process.cwd(), "src/fragments/index.html"), "utf8");
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>House of Artist Entertainment LLP</title>
-		<meta name="description" content="House of Artist is a creative platform connecting artists, organizers and brands." />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="/css/style.css" />
-	</head>
-	<body style="margin: 0">
-		<Fragment set:html={loader} />
-		<Fragment set:html={home} />
-		<script src="/js/site.js" defer></script>
-	</body>
-</html>
+<Base title="House of Artist Entertainment LLP" description="House of Artist is a creative platform connecting artists, organizers and brands." loader>
+	<Fragment set:html={html} />
+</Base>
