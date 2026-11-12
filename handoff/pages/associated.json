@@ -1,0 +1,65 @@
+{
+  "ASSOC": [
+    {
+      "type": "Ad film",
+      "artist": "[Artist name]",
+      "duration": "[0:00]",
+      "video": ""
+    },
+    {
+      "type": "Short film",
+      "artist": "[Artist name]",
+      "duration": "[0:00]",
+      "video": ""
+    },
+    {
+      "type": "Music video",
+      "artist": "[Artist name]",
+      "duration": "[0:00]",
+      "video": ""
+    },
+    {
+      "type": "Documentary",
+      "artist": "[Artist name]",
+      "duration": "[0:00]",
+      "video": ""
+    },
+    {
+      "type": "Live performance",
+      "artist": "[Artist name]",
+      "duration": "[0:00]",
+      "video": ""
+    },
+    {
+      "type": "Fashion film",
+      "artist": "[Artist name]",
+      "duration": "[0:00]",
+      "video": ""
+    },
+    {
+      "type": "Ad film",
+      "artist": "[Artist name]",
+      "duration": "[0:00]",
+      "video": ""
+    },
+    {
+      "type": "Music video",
+      "artist": "[Artist name]",
+      "duration": "[0:00]",
+      "video": ""
+    },
+    {
+      "type": "Short film",
+      "artist": "[Artist name]",
+      "duration": "[0:00]",
+      "video": ""
+    }
+  ],
+  "SHOWREEL": [
+    {
+      "title": "House of Artist showreel",
+      "meta": "[2\u20133 min] \u00b7 Music, events and film",
+      "source": "Vimeo"
+    }
+  ]
+}

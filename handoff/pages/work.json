@@ -1,0 +1,96 @@
+{
+  "SHOWREEL": [
+    {
+      "title": "House of Artist showreel",
+      "meta": "[2\u20133 min] \u00b7 Music, events and film",
+      "source": "Vimeo"
+    }
+  ],
+  "FILTERS": [
+    {
+      "id": "all",
+      "label": "All"
+    },
+    {
+      "id": "live",
+      "label": "Live events"
+    },
+    {
+      "id": "artist",
+      "label": "Artist projects"
+    },
+    {
+      "id": "brand",
+      "label": "Brand campaigns"
+    },
+    {
+      "id": "content",
+      "label": "Content"
+    }
+  ],
+  "WORKS": [
+    {
+      "cat": "live",
+      "tag": "Live event",
+      "title": "[Concert name]",
+      "meta": "[Venue], [City] \u00b7 [Year]",
+      "ph": "Thumbnail \u00b7 crowd and stage lights"
+    },
+    {
+      "cat": "brand",
+      "tag": "Brand campaign",
+      "title": "[Brand] \u00d7 [Artist]",
+      "meta": "[Campaign type] \u00b7 [Year]",
+      "ph": "Thumbnail \u00b7 campaign shoot"
+    },
+    {
+      "cat": "content",
+      "tag": "Content",
+      "title": "[Music video title]",
+      "meta": "[Artist] \u00b7 [Year]",
+      "ph": "Thumbnail \u00b7 music video frame"
+    },
+    {
+      "cat": "live",
+      "tag": "Live event",
+      "title": "[Festival or show name]",
+      "meta": "[Venue], [City] \u00b7 [Year]",
+      "ph": "Thumbnail \u00b7 festival stage"
+    },
+    {
+      "cat": "artist",
+      "tag": "Artist project",
+      "title": "[Artist launch or tour]",
+      "meta": "[Artist] \u00b7 [Year]",
+      "ph": "Thumbnail \u00b7 artist portrait"
+    },
+    {
+      "cat": "content",
+      "tag": "Content",
+      "title": "[Behind-the-scenes series]",
+      "meta": "[Platform] \u00b7 [Year]",
+      "ph": "Thumbnail \u00b7 backstage footage"
+    },
+    {
+      "cat": "live",
+      "tag": "Live event",
+      "title": "[Corporate night]",
+      "meta": "[Client], [City] \u00b7 [Year]",
+      "ph": "Thumbnail \u00b7 corporate stage"
+    },
+    {
+      "cat": "brand",
+      "tag": "Brand campaign",
+      "title": "[Brand] activation",
+      "meta": "[Format] \u00b7 [Year]",
+      "ph": "Thumbnail \u00b7 brand activation"
+    },
+    {
+      "cat": "artist",
+      "tag": "Artist project",
+      "title": "[Single or album launch]",
+      "meta": "[Artist] \u00b7 [Year]",
+      "ph": "Thumbnail \u00b7 launch night"
+    }
+  ]
+}

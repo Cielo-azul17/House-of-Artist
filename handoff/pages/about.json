@@ -1,0 +1,29 @@
+{
+  "SHOWREEL": [
+    {
+      "title": "House of Artist showreel",
+      "meta": "[2\u20133 min] \u00b7 Music, events and film",
+      "source": "Vimeo"
+    }
+  ],
+  "HIGHLIGHTS": [
+    {
+      "tag": "Featured production",
+      "title": "[Production name]",
+      "meta": "[Year] \u00b7 [Client or platform]",
+      "ph": "Thumbnail \u00b7 featured production"
+    },
+    {
+      "tag": "Notable event",
+      "title": "[Event name]",
+      "meta": "[City] \u00b7 [Year]",
+      "ph": "Thumbnail \u00b7 notable event"
+    },
+    {
+      "tag": "Brand partnership",
+      "title": "[Brand] \u00d7 [Artist]",
+      "meta": "[Campaign] \u00b7 [Year]",
+      "ph": "Thumbnail \u00b7 brand partnership"
+    }
+  ]
+}

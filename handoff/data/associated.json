@@ -1,0 +1,65 @@
+{
+  "ASSOC": [
+    {
+      "type": "Ad film",
+      "artist": "Ritika Sen",
+      "duration": "3:12",
+      "video": ""
+    },
+    {
+      "type": "Short film",
+      "artist": "Dev Malhotra",
+      "duration": "2:48",
+      "video": ""
+    },
+    {
+      "type": "Music video",
+      "artist": "Kiara Nair",
+      "duration": "4:05",
+      "video": ""
+    },
+    {
+      "type": "Documentary",
+      "artist": "Arjun Bose",
+      "duration": "1:56",
+      "video": ""
+    },
+    {
+      "type": "Live performance",
+      "artist": "Tara Iyer",
+      "duration": "3:30",
+      "video": ""
+    },
+    {
+      "type": "Fashion film",
+      "artist": "Zoya Khan",
+      "duration": "2:21",
+      "video": ""
+    },
+    {
+      "type": "Ad film",
+      "artist": "Rohan Mehta",
+      "duration": "1:02",
+      "video": ""
+    },
+    {
+      "type": "Music video",
+      "artist": "Anaya Shah",
+      "duration": "3:36",
+      "video": ""
+    },
+    {
+      "type": "Short film",
+      "artist": "Veer Sandhu",
+      "duration": "8:20",
+      "video": ""
+    }
+  ],
+  "SHOWREEL": [
+    {
+      "title": "House of Artist showreel",
+      "meta": "3 min · Music, events and film",
+      "source": "Vimeo"
+    }
+  ]
+}

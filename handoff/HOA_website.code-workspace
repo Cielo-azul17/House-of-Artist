@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"path": "img"
+		},
+		{
+			"path": "overlays"
+		},
+		{
+			"path": "pages"
+		},
+		{
+			"path": "reference-js"
+		},
+		{
+			"path": "css"
+		},
+		{
+			"path": "data"
+		}
+	]
+}

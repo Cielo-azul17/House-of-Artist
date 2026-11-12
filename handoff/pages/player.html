@@ -1,0 +1,53 @@
+<div class="hoa-modal" role="dialog" aria-modal="true" aria-label="Video player" tabindex="-1" style="position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: 150; display: flex; align-items: center; justify-content: center; padding: 60px 24px 20px; box-sizing: border-box; outline: none; overflow-y: auto" data-ref="playerRef">
+    <button type="button" tabindex="-1" aria-label="Close player" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; padding: 0; margin: 0; background: rgba(255,255,255,0.88); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); cursor: pointer" data-act="player-close"></button>
+    <div aria-hidden="true" class="hoa-glow-b" style="position: absolute; top: 8%; left: 12%; width: 520px; height: 520px; border-radius: 50%; background: radial-gradient(circle at 50% 50%, rgba(63,208,230,0.22), rgba(63,208,230,0) 62%); filter: blur(30px); pointer-events: none"></div>
+    <div aria-hidden="true" class="hoa-glow" style="position: absolute; bottom: 4%; right: 10%; width: 560px; height: 560px; border-radius: 50%; background: radial-gradient(circle at 50% 50%, rgba(142,166,242,0.20), rgba(142,166,242,0) 62%); filter: blur(30px); pointer-events: none"></div>
+    <button type="button" aria-label="Close player" style="position: absolute; top: 20px; right: 20px; z-index: 2; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; flex: none; border: none; background: #FFFFFF; color: #13232A; box-shadow: 0 8px 24px rgba(15,26,31,0.10)" data-act="player-close"><svg class="ic" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button>
+    <div style="position: relative; z-index: 1; width: 100%; max-width: 1240px; max-height: 100%; display: flex; align-items: center; justify-content: center; gap: clamp(8px, 2vw, 24px)">
+      <div class="hoa-modal-body" style="flex: 0 1 auto; width: min(calc(100% - 168px), calc((100vh - 190px) * 16 / 9)); min-width: 0; display: flex; flex-direction: column; gap: 16px">
+        <div style="position: relative">
+          <div style="position: relative; aspect-ratio: 16 / 9; border-radius: 10px; overflow: hidden; border: 1px solid rgba(11,110,128,0.22); background: radial-gradient(circle at 50% 40%, #24434F 0%, #0F1A1F 78%); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; box-shadow: 0 30px 70px rgba(15,26,31,0.18)">
+            <span style="display: flex; align-items: center; justify-content: center; width: 76px; height: 76px; border-radius: 50%; background: #3FD0E6; color: #0F1A1F; box-shadow: 0 0 0 14px rgba(63,208,230,0.14)"><svg class="icf" viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><polygon points="7 4 20 12 7 20 7 4"></polygon></svg></span>
+            <span style="font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #9FB3BA">Video coming soon</span>
+            
+          </div>
+          
+            <button type="button" aria-label="Previous video" style="position: absolute; top: 50%; left: -76px; transform: translateY(-50%); width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; flex: none; border: none; background: #FFFFFF; color: #13232A; box-shadow: 0 8px 24px rgba(15,26,31,0.10)" data-act="player-prev"><svg class="ic" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg></button>
+            <button type="button" aria-label="Next video" style="position: absolute; top: 50%; right: -76px; transform: translateY(-50%); width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; flex: none; border: none; background: #FFFFFF; color: #13232A; box-shadow: 0 8px 24px rgba(15,26,31,0.10)" data-act="player-next"><svg class="ic" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button>
+          
+        </div>
+        <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px 24px">
+          <div style="display: flex; flex-direction: column; gap: 6px; min-width: 0">
+            <span class="m-p20" style="font-family: 'Playfair Display', serif; font-size: clamp(24px, 2.4vw, 32px); line-height: 1.15; color: #13232A; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Ad film</span>
+            <span class="m-p14" style="font-size: 14px; color: #4A5D64; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Ritika Sen · Independent work</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 16px">
+            
+              <button type="button" aria-label="Mute video" aria-pressed="false" style="width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; flex: none; border: none; background: #FFFFFF; color: #13232A; box-shadow: 0 8px 24px rgba(15,26,31,0.10)" data-act="player-mute"><svg class="ic" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.5 8.5a5 5 0 0 1 0 7"></path><path d="M19 5a10 10 0 0 1 0 14"></path></svg></button>
+            
+            
+            
+              <span class="m-p14" style="font-size: 14px; font-weight: 600; letter-spacing: 0.2em; color: #0B6E80">01 / 06</span>
+            
+          </div>
+        </div>
+        
+          <div style="display: flex; gap: 6px" aria-hidden="true">
+            
+              <span style="flex: 1 1 0; height: 3px; border-radius: 2px; background: #0B6E80" data-i="0"></span>
+            
+              <span style="flex: 1 1 0; height: 3px; border-radius: 2px; background: rgba(19,35,42,0.12)" data-i="1"></span>
+            
+              <span style="flex: 1 1 0; height: 3px; border-radius: 2px; background: rgba(19,35,42,0.12)" data-i="2"></span>
+            
+              <span style="flex: 1 1 0; height: 3px; border-radius: 2px; background: rgba(19,35,42,0.12)" data-i="3"></span>
+            
+              <span style="flex: 1 1 0; height: 3px; border-radius: 2px; background: rgba(19,35,42,0.12)" data-i="4"></span>
+            
+              <span style="flex: 1 1 0; height: 3px; border-radius: 2px; background: rgba(19,35,42,0.12)" data-i="5"></span>
+            
+          </div>
+        
+      </div>
+    </div>
+  </div>

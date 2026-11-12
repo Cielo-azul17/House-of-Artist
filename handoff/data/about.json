@@ -1,0 +1,29 @@
+{
+  "SHOWREEL": [
+    {
+      "title": "House of Artist showreel",
+      "meta": "3 min · Music, events and film",
+      "source": "Vimeo"
+    }
+  ],
+  "HIGHLIGHTS": [
+    {
+      "tag": "Featured production",
+      "title": "Golden Hour Live Set",
+      "meta": "2026 · Live broadcast",
+      "ph": "Thumbnail · featured production"
+    },
+    {
+      "tag": "Notable event",
+      "title": "Harbour Lights Festival",
+      "meta": "Goa · 2026",
+      "ph": "Thumbnail · notable event"
+    },
+    {
+      "tag": "Brand partnership",
+      "title": "Nova Denim × Dev Malhotra",
+      "meta": "Campaign film · 2026",
+      "ph": "Thumbnail · brand partnership"
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "ASSOC": [
+    {
+      "type": "Ad film",
+      "artist": "Ritika Sen",
+      "duration": "3:12",
+      "video": ""
+    },
+    {
+      "type": "Documentary",
+      "artist": "Dev Malhotra",
+      "duration": "2:48",
+      "video": ""
+    },
+    {
+      "type": "Ad film",
+      "artist": "Kiara Nair",
+      "duration": "4:05",
+      "video": ""
+    },
+    {
+      "type": "Live performance",
+      "artist": "Arjun Bose",
+      "duration": "1:56",
+      "video": ""
+    },
+    {
+      "type": "Short film",
+      "artist": "Tara Iyer",
+      "duration": "3:30",
+      "video": ""
+    },
+    {
+      "type": "Music video",
+      "artist": "Zoya Khan",
+      "duration": "2:21",
+      "video": ""
+    }
+  ],
+  "SHOWREEL": [
+    {
+      "title": "House of Artist showreel",
+      "meta": "3 min · Music, events and film",
+      "source": "Vimeo"
+    }
+  ],
+  "FILTERS": [
+    {
+      "id": "all",
+      "label": "All"
+    },
+    {
+      "id": "live",
+      "label": "Live events"
+    },
+    {
+      "id": "artist",
+      "label": "Artist projects"
+    },
+    {
+      "id": "brand",
+      "label": "Brand campaigns"
+    },
+    {
+      "id": "content",
+      "label": "Content"
+    }
+  ],
+  "WORKS": [
+    {
+      "cat": "live",
+      "tag": "Live event",
+      "title": "Midnight Bloom Live",
+      "meta": "Open-air arena, Mumbai · 2026",
+      "ph": "Thumbnail · crowd and stage lights"
+    },
+    {
+      "cat": "brand",
+      "tag": "Brand campaign",
+      "title": "Nova Denim × Dev Malhotra",
+      "meta": "Campaign film · 2026",
+      "ph": "Thumbnail · campaign shoot"
+    },
+    {
+      "cat": "content",
+      "tag": "Content",
+      "title": "Golden Hour",
+      "meta": "Kiara Nair · 2026",
+      "ph": "Thumbnail · music video frame"
+    },
+    {
+      "cat": "live",
+      "tag": "Live event",
+      "title": "Harbour Lights Festival",
+      "meta": "Waterfront stage, Goa · 2026",
+      "ph": "Thumbnail · festival stage"
+    },
+    {
+      "cat": "artist",
+      "tag": "Artist project",
+      "title": "Velvet Roads Tour",
+      "meta": "Tara Iyer · 2025",
+      "ph": "Thumbnail · artist portrait"
+    },
+    {
+      "cat": "content",
+      "tag": "Content",
+      "title": "Backstage Diaries",
+      "meta": "Instagram and YouTube · 2026",
+      "ph": "Thumbnail · backstage footage"
+    }
+  ]
+}

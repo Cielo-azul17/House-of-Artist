@@ -1,0 +1,16 @@
+{
+  "ROLES": [
+    {
+      "id": "performer",
+      "label": "I\u2019m a performer",
+      "title": "Join as a performer",
+      "sub": "Looking for opportunities, collaborations or representation."
+    },
+    {
+      "id": "organizer",
+      "label": "I\u2019m an organizer",
+      "title": "Plan an event with us",
+      "sub": "Planning an event or looking for talented artists."
+    }
+  ]
+}
