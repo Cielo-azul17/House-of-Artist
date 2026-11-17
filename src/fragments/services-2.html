@@ -70,15 +70,19 @@
   .s2-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(15,26,31,0.18); }
 
   .s2-car-wrap { position: relative; }
-  .s2-car { }
   .s2-car-nav { display: none; }
   @media (min-width: 901px) {
-    .s2-car { height: calc(100vh - 84px); min-height: 560px; overflow-y: auto; scroll-snap-type: y mandatory; scroll-behavior: smooth; scrollbar-width: none; }
-    .s2-car::-webkit-scrollbar { display: none; }
-    .s2-car > section { min-height: 100%; scroll-snap-align: start; display: flex; align-items: center; }
+    .s2-car { position: relative; overflow: hidden; }
+    .s2-car > section { position: absolute; inset: 0; min-height: 0; display: flex; align-items: flex-start; padding: 28px 0 !important; opacity: 0; visibility: hidden; transform: translateY(40px); transition: opacity .6s ease, transform .7s cubic-bezier(.2,.7,.2,1), visibility .7s; overflow-y: auto; scrollbar-width: none; }
+    .s2-car > section::-webkit-scrollbar { display: none; }
+    .s2-car > section.is-active { opacity: 1; visibility: visible; transform: none; }
+    .s2-car > section.is-before { transform: translateY(-40px); }
     .s2-car > section > .s2-wrap { width: 100%; }
+    .s2-car .s2-head { position: static !important; }
+    .s2-car .s2-grid { align-items: center; }
+    .s2-car { height: calc(100vh - 84px); min-height: 600px; }
     .s2-car-nav { display: flex; flex-direction: column; align-items: center; gap: 14px; position: absolute; right: clamp(12px, 2vw, 28px); top: 50%; transform: translateY(-50%); z-index: 5; }
-    .s2-car-nav button { width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(11,110,128,0.35); background: #FFFFFF; color: #13232A; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+    .s2-car-nav button { width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(11,110,128,0.35); background: #FFFFFF; color: #13232A; display: flex; align-items: center; justify-content: center; cursor: pointer; }
     .s2-car-nav button:hover { border-color: #0B6E80; }
     .s2-car-dots { display: flex; flex-direction: column; gap: 10px; }
     .s2-car-dots button { width: 10px; height: 10px; padding: 0; border-radius: 50%; border: none; background: rgba(11,110,128,0.25); cursor: pointer; }
@@ -204,25 +208,38 @@
   var dots = Array.prototype.slice.call(document.querySelectorAll(".s2-car-dots button"));
   var mq = window.matchMedia("(min-width: 901px)");
   var current = 0;
-  var go = function (i) {
-    if (!mq.matches) return;
+  var show = function (i) {
     i = Math.max(0, Math.min(slides.length - 1, i));
-    car.scrollTo({ top: slides[i].offsetTop, behavior: "smooth" });
-  };
-  var setActive = function (i) {
-    current = i;
+    slides.forEach(function (sl, k) {
+      sl.classList.toggle("is-active", k === i);
+      sl.classList.toggle("is-before", k < i);
+      sl.setAttribute("aria-hidden", k === i ? "false" : "true");
+    });
     dots.forEach(function (d, k) { d.setAttribute("aria-current", k === i ? "true" : "false"); });
+    current = i;
   };
-  var nearest = function () {
-    var best = 0, bestD = Infinity;
-    slides.forEach(function (sl, k) { var d = Math.abs(sl.offsetTop - car.scrollTop); if (d < bestD) { bestD = d; best = k; } });
-    return best;
-  };
-  car.addEventListener("scroll", function () { setActive(nearest()); }, { passive: true });
+  var go = function (i) { if (mq.matches) show(i); };
   dots.forEach(function (d) { d.addEventListener("click", function () { go(parseInt(d.getAttribute("data-i"), 10)); }); });
   document.querySelectorAll("[data-dir]").forEach(function (b) {
     b.addEventListener("click", function () { go(current + parseInt(b.getAttribute("data-dir"), 10)); });
   });
+  document.querySelectorAll("a[href^=\"#\"]").forEach(function (a) {
+    var k = slides.findIndex(function (sl) { return "#" + sl.id === a.getAttribute("href"); });
+    if (k > -1) a.addEventListener("click", function (e) { if (mq.matches) { e.preventDefault(); go(k); document.getElementById("s2-car").scrollIntoView({ behavior: "smooth", block: "start" }); } });
+  });
+  var y0 = null;
+  car.addEventListener("touchstart", function (e) { y0 = e.touches[0].clientY; }, { passive: true });
+  car.addEventListener("touchend", function (e) {
+    if (y0 === null || !mq.matches) return;
+    var dy = e.changedTouches[0].clientY - y0; y0 = null;
+    if (Math.abs(dy) > 50) go(current + (dy < 0 ? 1 : -1));
+  });
+  window.addEventListener("keydown", function (e) {
+    if (!mq.matches) return;
+    if (e.key === "ArrowDown") go(current + 1);
+    if (e.key === "ArrowUp") go(current - 1);
+  });
+  show(0);
 })();
 </script>
 
