@@ -207,9 +207,9 @@
     var lblStyle = 'font-size:13px;font-weight:500;color:#3E5259';
     var inStyle = 'min-height:48px;padding:0 16px;border-radius:8px;border:1px solid #D3E2E7;font-family:Montserrat,sans-serif;font-size:16px;color:#13232A;background:#FFFFFF';
     var orgFields = '' +
-      '<div style="' + label + '"><label class="m-p14" for="o-org" style="' + lblStyle + '">Organisation</label><input id="o-org" type="text" placeholder="Company, venue or brand" style="' + inStyle + '"></div>' +
-      '<div style="' + label + '"><label class="m-p14" for="o-event" style="' + lblStyle + '">Event or project</label><input id="o-event" type="text" placeholder="What are you planning?" style="' + inStyle + '"></div>' +
-      '<div style="' + label + '"><label class="m-p14" for="o-date" style="' + lblStyle + '">Event date</label><input id="o-date" type="text" placeholder="e.g. March 2027" style="' + inStyle + '"></div>' +
+      '<div style="' + label + '"><label class="m-p14" for="o-org" style="' + lblStyle + '">Agency or company</label><input id="o-org" type="text" placeholder="Agency or organisation" style="' + inStyle + '"></div>' +
+      '<div style="' + label + '"><label class="m-p14" for="o-event" style="' + lblStyle + '">Project or event</label><input id="o-event" type="text" placeholder="What is the project?" style="' + inStyle + '"></div>' +
+      '<div style="' + label + '"><label class="m-p14" for="o-date" style="' + lblStyle + '">Timeline</label><input id="o-date" type="text" placeholder="e.g. Q1 2027" style="' + inStyle + '"></div>' +
       '<div style="' + label + '"><label class="m-p14" for="o-city" style="' + lblStyle + '">City</label><input id="o-city" type="text" placeholder="City" style="' + inStyle + '"></div>';
     var setRole = function (role) {
       var isPerf = role === 'performer';
@@ -220,11 +220,11 @@
         b.style.background = on ? '#13232A' : 'transparent';
         b.style.color = on ? '#FFFFFF' : '#13232A';
       });
-      if (heading) heading.textContent = isPerf ? 'Join as a performer' : 'Plan an event with us';
-      if (sub) sub.textContent = isPerf ? 'Looking for opportunities, collaborations or representation.' : 'Planning an event or looking for talented artists.';
+      if (heading) heading.textContent = isPerf ? 'Join our team' : 'Work with us as an agency';
+      if (sub) sub.textContent = isPerf ? 'Tell us about your skills, experience and the roles you’re interested in.' : 'Tell us about the event or campaign you need help with.';
       if (fieldsWrap) fieldsWrap.innerHTML = isPerf ? performerFields : orgFields;
       if (performerLink) performerLink.style.display = isPerf ? '' : 'none';
-      if (messageWrap) messageWrap.querySelector('textarea').placeholder = isPerf ? 'Tell us a little about what you have in mind' : 'Tell us about the event: audience, dates and what you need';
+      if (messageWrap) messageWrap.querySelector('textarea').placeholder = isPerf ? 'Tell us a little about what you have in mind' : 'Tell us about the project: scope, dates and budget range';
     };
     perf.addEventListener('click', function () { setRole('performer'); });
     org.addEventListener('click', function () { setRole('organizer'); });
