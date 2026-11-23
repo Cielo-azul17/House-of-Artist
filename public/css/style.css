@@ -214,3 +214,24 @@ a:hover{color:#08515E}
 .hoa[data-cursor="on"] input,.hoa[data-cursor="on"] textarea{cursor:text !important}
 .hoa[data-cursor="on"] select{cursor:pointer !important}
 }
+
+/* Dark page banners (hero-dark): light text on the Night background */
+.hero-dark { background: #0F1A1F !important; color: #E8F4F7 !important; }
+.hero-dark h1, .hero-dark h2, .hero-dark h3 { color: #FFFFFF !important; }
+.hero-dark em { color: #3FD0E6 !important; }
+.hero-dark p, .hero-dark li, .hero-dark span { color: #C4D4D9 !important; }
+.hero-dark p[style*="0.28em"], .hero-dark p[style*="0.2em"] { color: #3FD0E6 !important; }
+.hero-dark a { color: #3FD0E6 !important; }
+.hero-dark .btn-f { background: #3FD0E6 !important; color: #0F1A1F !important; }
+.hero-dark .btn-o { border-color: rgba(255,255,255,0.45) !important; color: #FFFFFF !important; background: transparent !important; }
+.hero-dark div[style*="background: #FFFFFF"], .hero-dark div[style*="background: #FFFFFF"] * { color: #13232A !important; }
+.hero-dark div[style*="background: #FFFFFF"] span[style*="color: #0B6E80"] { color: #0B6E80 !important; }
+
+/* Help cards on the contact page sit inside the dark banner: keep them light */
+.hero-dark .help-card h3 { color: #13232A !important; white-space: normal !important; overflow: visible !important; text-overflow: clip !important; font-size: 22px !important; }
+.hero-dark .help-card p { color: #3E5259 !important; white-space: normal !important; overflow: visible !important; text-overflow: clip !important; }
+.hero-dark .help-card li { color: #2C3F46 !important; white-space: normal !important; overflow: visible !important; text-overflow: clip !important; }
+.hero-dark .help-card span { color: #0B6E80 !important; }
+.hero-dark .help-card span[style*="border-radius: 50%"] { color: #0B6E80 !important; }
+
+.hero-dark .help-card { background: #F4FBFD !important; }

@@ -228,6 +228,7 @@
     };
     perf.addEventListener('click', function () { setRole('performer'); });
     org.addEventListener('click', function () { setRole('organizer'); });
+    setRole('organizer');
     if (send) send.addEventListener('click', function () {
       var name = $('#c-name'), email = $('#c-email'), msg = $('#c-msg');
       var errs = [];

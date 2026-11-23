@@ -53,6 +53,10 @@
   .s2-media { grid-column: 7 / span 6; position: relative; }
   .s2-media img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 6px; }
   .s2-media .s2-note { position: absolute; left: 20px; bottom: 20px; right: 20px; padding: 14px 18px; border-radius: 6px; background: rgba(255,255,255,0.94); font-size: 14px; font-weight: 600; color: #0B6E80; }
+
+  .s2-tabs { position: absolute; top: 16px; left: 16px; z-index: 2; display: inline-flex; gap: 6px; padding: 5px; border-radius: 999px; background: rgba(15,26,31,0.72); backdrop-filter: blur(8px); }
+  .s2-tabs button { min-height: 36px; padding: 0 16px; border-radius: 999px; border: none; background: transparent; color: #C4D4D9; font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 600; cursor: pointer; }
+  .s2-tabs button[aria-selected="true"] { background: #3FD0E6; color: #0F1A1F; }
   .s2-process { background: #13232A; color: #E8F4F7; padding: clamp(60px, 7vw, 100px) 0; position: relative; overflow: hidden; }
   .s2-process h2 { font-size: clamp(34px, 4vw, 52px); color: #FFFFFF; }
   .s2-process h2 em { color: #3FD0E6; }
@@ -113,7 +117,16 @@
         </ul>
       </div>
       <div class="s2-media">
-        <img src="/img/photos/content-editing-monitor.jpg" alt="Video editing suite with a timeline on screen" />
+        <div class="s2-tabs" role="tablist" aria-label="Video production views">
+          <button type="button" role="tab" aria-selected="true" data-tab="0">1. Videos</button>
+          <button type="button" role="tab" aria-selected="false" data-tab="1">2. Screengrabs / BTS</button>
+        </div>
+        <div class="s2-panel" data-panel="0">
+          <img src="/img/photos/content-editing-monitor.jpg" alt="Video editing suite with a timeline on screen" />
+        </div>
+        <div class="s2-panel" data-panel="1" hidden>
+          <img src="/img/photos/brand-film-clapperboard.jpg" alt="Behind the scenes on a film set" />
+        </div>
         <p class="s2-note">For artists and brands who need to be seen.</p>
       </div>
     </div>
@@ -166,6 +179,29 @@
   </div>
 </section>
 
+<section id="artist" class="s2-service alt">
+  <div class="s2-wrap">
+    <div class="s2-grid">
+      <div class="s2-media" style="grid-column: 1 / span 6; grid-row: 1">
+        <img src="/img/photos/artist-management-studio.jpg" alt="Recording studio with a mixing desk and guitars" />
+        <p class="s2-note">For artists ready to grow their audience.</p>
+      </div>
+      <div class="s2-head" style="grid-column: 8 / span 5; grid-row: 1">
+        <p class="s2-num">04</p>
+        <h2>Artist collaboration</h2>
+        <p class="s2-tag">Growing talent, side by side.</p>
+        <p class="s2-desc">We develop artists for the long run: releases, visuals and live showcases planned together, with the right partners in the room. Our aim is a career that grows with each project.</p>
+        <ul class="s2-chips">
+          <li>Artist development</li>
+          <li>Releases and rollouts</li>
+          <li>Live showcases</li>
+          <li>Collaborations and features</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="s2-process">
   <div class="s2-wrap">
     <p class="s2-eyebrow" style="color: #3FD0E6">How we work</p>
@@ -195,6 +231,19 @@
 </section>
 
 </div>
+<script>
+(function () {
+  var btns = document.querySelectorAll(".s2-tabs [role=tab]");
+  var panels = document.querySelectorAll(".s2-panel");
+  btns.forEach(function (b) {
+    b.addEventListener("click", function () {
+      var i = b.getAttribute("data-tab");
+      btns.forEach(function (x) { x.setAttribute("aria-selected", x === b ? "true" : "false"); });
+      panels.forEach(function (p) { p.hidden = p.getAttribute("data-panel") !== i; });
+    });
+  });
+})();
+</script>
 <!-- ============ FOOTER ============ -->
 <footer style="position: relative; background: #0B1418; color: #9FB3BA">
   <div class="f-wrap" style="max-width: 1240px; margin: 0 auto; padding: 50px clamp(20px, 4vw, 40px) 22px; display: flex; flex-direction: column; gap: 56px">
@@ -228,6 +277,7 @@
           <li><a class="flink m-p16" href="/services" style="display: inline-flex; align-items: center; gap: 12px; padding: 7px 0; font-size: 15px"><svg class="ic" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" style="color: #3FD0E6; flex: none"><path d="M7 17 17 7"></path><path d="M8 7h9v9"></path></svg>Video production</a></li>
           <li><a class="flink m-p16" href="/services" style="display: inline-flex; align-items: center; gap: 12px; padding: 7px 0; font-size: 15px"><svg class="ic" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" style="color: #3FD0E6; flex: none"><path d="M7 17 17 7"></path><path d="M8 7h9v9"></path></svg>Brand collaborations</a></li>
           <li><a class="flink m-p16" href="/services" style="display: inline-flex; align-items: center; gap: 12px; padding: 7px 0; font-size: 15px"><svg class="ic" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" style="color: #3FD0E6; flex: none"><path d="M7 17 17 7"></path><path d="M8 7h9v9"></path></svg>Event production</a></li>
+          <li><a class="flink m-p16" href="/services" style="display: inline-flex; align-items: center; gap: 12px; padding: 7px 0; font-size: 15px"><svg class="ic" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" style="color: #3FD0E6; flex: none"><path d="M7 17 17 7"></path><path d="M8 7h9v9"></path></svg>Artist collaboration</a></li>
         </ul>
       </nav>
       <div class="f-social" style="display: flex; flex-direction: column; gap: 22px">
