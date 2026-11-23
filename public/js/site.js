@@ -417,11 +417,11 @@
 
   /* Videos / Screengrabs / BTS view tabs */
   function initViewTabs() {
-    var bars = $("[data-view-tabs]");
+    var bars = $$("[data-view-tabs]");
     if (!bars.length) return;
-    var panels = $(".view-panel");
+    var panels = $$(".view-panel");
     bars.forEach(function (bar) {
-      var btns = $("button", bar);
+      var btns = $$("button", bar);
       btns.forEach(function (b) {
         b.addEventListener("click", function () {
           var i = b.getAttribute("data-tab");
