@@ -11,6 +11,21 @@
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var finePointer = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
+  /* Set this to the form endpoint once the HOA team email is connected (Formspree, Web3Forms or similar).
+   * While it is empty, enquiries are NOT sent; the thank-you message still shows. */
+  var FORM_ENDPOINT = '';
+
+  /* Small envelope illustration shown after a successful enquiry. */
+  var THANKS_SVG = '<svg width="160" height="120" viewBox="0 0 160 120" fill="none" aria-hidden="true">' +
+    '<rect x="22" y="36" width="116" height="70" rx="8" fill="#F4FBFD" stroke="#0B6E80" stroke-width="2"/>' +
+    '<path d="M22 44 L80 82 L138 44" stroke="#0B6E80" stroke-width="2" stroke-linejoin="round"/>' +
+    '<circle cx="124" cy="24" r="16" fill="#3FD0E6"/>' +
+    '<path d="M117 24 l5 5 l9 -10" stroke="#0F1A1F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>' +
+    '<path d="M14 18 l5 0 M16.5 15.5 l0 5" stroke="#3FD0E6" stroke-width="2" stroke-linecap="round"/>' +
+    '<path d="M146 98 l4 0 M148 96 l0 4" stroke="#0B6E80" stroke-width="2" stroke-linecap="round"/>' +
+    '</svg>';
+
+
   /* ---------- Loader (home only) ---------- */
   function initLoader() {
     var loader = $('.hoa-loader');
@@ -207,6 +222,9 @@
     var lblStyle = 'font-size:13px;font-weight:500;color:#3E5259';
     var inStyle = 'min-height:48px;padding:0 16px;border-radius:8px;border:1px solid #D3E2E7;font-family:Montserrat,sans-serif;font-size:16px;color:#13232A;background:#FFFFFF';
     var orgFields = '' +
+      '<div style="' + label + '"><label class="m-p14" for="c-name" style="' + lblStyle + '">Your name</label><input id="c-name" type="text" placeholder="Your name" style="' + inStyle + '"></div>' +
+      '<div style="' + label + '"><label class="m-p14" for="c-email" style="' + lblStyle + '">Email</label><input id="c-email" type="email" placeholder="you@example.com" style="' + inStyle + '"></div>' +
+      '<div style="' + label + '"><label class="m-p14" for="c-phone" style="' + lblStyle + '">Phone</label><input id="c-phone" type="tel" placeholder="+91" style="' + inStyle + '"></div>' +
       '<div style="' + label + '"><label class="m-p14" for="o-org" style="' + lblStyle + '">Agency or company</label><input id="o-org" type="text" placeholder="Agency or organisation" style="' + inStyle + '"></div>' +
       '<div style="' + label + '"><label class="m-p14" for="o-event" style="' + lblStyle + '">Project or event</label><input id="o-event" type="text" placeholder="What is the project?" style="' + inStyle + '"></div>' +
       '<div style="' + label + '"><label class="m-p14" for="o-date" style="' + lblStyle + '">Timeline</label><input id="o-date" type="text" placeholder="e.g. Q1 2027" style="' + inStyle + '"></div>' +
@@ -229,25 +247,96 @@
     perf.addEventListener('click', function () { setRole('performer'); });
     org.addEventListener('click', function () { setRole('organizer'); });
     setRole('organizer');
+    var hp = document.createElement('input');
+    hp.type = 'text';
+    hp.name = 'website';
+    hp.tabIndex = -1;
+    hp.autocomplete = 'off';
+    hp.setAttribute('aria-hidden', 'true');
+    hp.style.cssText = 'position:absolute;left:-9999px;width:1px;height:1px;opacity:0';
+    form.appendChild(hp);
+
+    var showThanks = function () {
+      var kids = Array.prototype.slice.call(form.children).filter(function (c) { return c !== hp; });
+      kids.forEach(function (c) { c.style.display = 'none'; });
+      var box = document.createElement('div');
+      box.id = 'form-thanks';
+      box.setAttribute('role', 'status');
+      box.style.cssText = 'display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px;padding:24px 8px';
+      box.innerHTML = THANKS_SVG +
+        '<h3 style="margin:0;font-family:\'Playfair Display\',serif;font-weight:500;font-size:30px;color:#13232A">Thank you!</h3>' +
+        '<p style="margin:0;max-width:420px;font-size:16px;line-height:1.7;color:#3E5259">We have received your enquiry. Our team will get back to you within 2 working days.</p>' +
+        '<button type="button" id="form-again" style="min-height:44px;padding:0 22px;border-radius:999px;border:1px solid #0B6E80;background:transparent;color:#0B6E80;font:600 14px Montserrat,sans-serif;cursor:pointer">Send another enquiry</button>';
+      form.appendChild(box);
+      box.querySelector('#form-again').addEventListener('click', function () {
+        box.remove();
+        kids.forEach(function (c) { c.style.display = ''; });
+      });
+      box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    };
+
     if (send) send.addEventListener('click', function () {
-      var name = $('#c-name'), email = $('#c-email'), msg = $('#c-msg');
-      var errs = [];
-      if (!name || !name.value.trim()) errs.push('Please add your name.');
-      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) errs.push('Please add a valid email address.');
-      if (!msg || msg.value.trim().length < 10) errs.push('Please tell us a little more about what you have in mind.');
       var status = $('#form-status');
       if (!status) {
         status = document.createElement('p');
         status.id = 'form-status';
         status.setAttribute('role', 'status');
-        status.style.cssText = 'margin:0;font-size:15px;line-height:1.6;color:#0B6E80';
+        status.style.cssText = 'margin:0;font-size:15px;line-height:1.6;color:#B3261E';
         send.parentElement.appendChild(status);
       }
-      if (errs.length) { status.style.color = '#B3261E'; status.textContent = errs.join(' '); return; }
-      /* No endpoint is wired yet (brief: Formspree or similar). Submission
-       * goes here once the endpoint is chosen. */
+      status.textContent = '';
+      status.style.color = '#B3261E';
+
+      // Honeypot: bots fill the hidden field; show the thank-you without sending.
+      if (hp.value) { showThanks(); return; }
+
+      var name = $('#c-name'), email = $('#c-email'), msg = $('#c-msg');
+      var errs = [];
+      if (!name || !name.value.trim()) errs.push('Please add your name.');
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) errs.push('Please add a valid email address.');
+      if (!msg || msg.value.trim().length < 10) errs.push('Please tell us a little more about what you have in mind.');
+      if (errs.length) { status.textContent = errs.join(' '); return; }
+
+      var isOrg = org.getAttribute('aria-pressed') === 'true';
+      var v = function (id) { var el = document.getElementById(id); return el ? el.value.trim() : ''; };
+      var payload = {
+        enquiry_type: isOrg ? 'Need services' : 'Join team',
+        name: name.value.trim(),
+        email: email.value.trim(),
+        phone: v('c-phone'),
+        message: msg.value.trim(),
+        submitted_at: new Date().toISOString()
+      };
+      if (isOrg) {
+        payload.agency = v('o-org');
+        payload.project = v('o-event');
+        payload.timeline = v('o-date');
+        payload.city = v('o-city');
+      } else {
+        payload.role_or_skill = v('c-craft');
+        payload.portfolio_link = v('c-link');
+      }
+
+      // No endpoint yet: nothing is sent. Set FORM_ENDPOINT at the top of this file.
+      if (!FORM_ENDPOINT) { showThanks(); return; }
+
+      send.disabled = true;
       status.style.color = '#0B6E80';
-      status.textContent = 'Thank you. Your enquiry is ready to send once the form endpoint is connected.';
+      status.textContent = 'Sending…';
+      fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(function (r) {
+        if (!r.ok) throw new Error('status ' + r.status);
+        send.disabled = false;
+        status.textContent = '';
+        showThanks();
+      }).catch(function () {
+        send.disabled = false;
+        status.style.color = '#B3261E';
+        status.textContent = 'Sorry, something went wrong. Please try again or email us directly.';
+      });
     });
   }
 
