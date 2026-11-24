@@ -13,7 +13,8 @@
 
   /* Set this to the form endpoint once the HOA team email is connected (Formspree, Web3Forms or similar).
    * While it is empty, enquiries are NOT sent; the thank-you message still shows. */
-  var FORM_ENDPOINT = '';
+  var FORM_ENDPOINT = 'https://api.web3forms.com/submit';
+  var WEB3FORMS_KEY = '583e265d-451c-4c56-9eb3-d333e94c1616';
 
   /* Small envelope illustration shown after a successful enquiry. */
   var THANKS_SVG = '<svg width="160" height="120" viewBox="0 0 160 120" fill="none" aria-hidden="true">' +
@@ -300,6 +301,9 @@
       var isOrg = org.getAttribute('aria-pressed') === 'true';
       var v = function (id) { var el = document.getElementById(id); return el ? el.value.trim() : ''; };
       var payload = {
+        access_key: WEB3FORMS_KEY,
+        subject: 'New enquiry: ' + (isOrg ? 'Need services' : 'Join team') + ' · ' + name.value.trim(),
+        from_name: 'House of Artist website',
         enquiry_type: isOrg ? 'Need services' : 'Join team',
         name: name.value.trim(),
         email: email.value.trim(),
