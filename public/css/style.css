@@ -246,3 +246,6 @@ a:hover{color:#08515E}
 .bts-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .bts-tag { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #0B6E80; }
 .bts-title { font-family: "Playfair Display", serif; font-size: 20px; color: #13232A; }
+
+/* Enquiry form: 15% more compact on desktop */
+@media (min-width: 901px) { .hoa .form-card { zoom: 0.85; } }
