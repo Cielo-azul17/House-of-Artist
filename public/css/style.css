@@ -237,7 +237,7 @@ a:hover{color:#08515E}
 .hero-dark .help-card { background: #F4FBFD !important; }
 
 /* Videos / Screengrabs / BTS view tabs (Our work, Associated work) */
-.view-tabs { display: inline-flex; gap: 6px; padding: 5px; margin: 0 clamp(20px, 4vw, 40px) 0; border-radius: 999px; background: #F4FBFD; border: 1px solid rgba(11,110,128,0.22); }
+.view-tabs { display: inline-flex; gap: 6px; padding: 5px; margin: 0 auto; border-radius: 999px; background: #F4FBFD; border: 1px solid rgba(11,110,128,0.22); }
 .view-tabs button { min-height: 40px; padding: 0 18px; border-radius: 999px; border: none; background: transparent; color: #13232A; font-family: "Montserrat", sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; }
 .view-tabs button[aria-selected="true"] { background: #13232A; color: #FFFFFF; }
 .bts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 32px 24px; }
